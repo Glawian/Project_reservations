@@ -25,12 +25,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./src/index.html",
         }),
-        new HtmlWebpackPlugin({
-            template: './src/kontakt.html',
-            inject: true,
-            chunks: ['index'],
-            filename: 'kontakt.html'
-        }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: "[name].[hash].css"
