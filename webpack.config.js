@@ -39,10 +39,6 @@ module.exports = {
         }, {
             reload: false
         }),
-        new CopyWebpackPlugin([{
-            from: './src/assets',
-            to: './dest/assets'
-        }]),
         new webpack.LoaderOptionsPlugin({
             options: {
                 postcss: [
