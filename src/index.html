@@ -6,35 +6,153 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Rezerwacje online</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </head>
 
 <body>
+    <div id="login" class="logAndRej" style="display: none;">
+        <form action="" class="loginForm">
+            <p id="pNav">Logowanie</p>
+            <p id="pCentered">Zaloguj się na swoje konto</p>
+            <input type="email" placeholder="Adres e-mail">
+            <input type="password" placeholder="Hasło">
+            <p class="info"><a href="#">Nie pamiętasz hasła?</a></p>
+            <button><a href="#">Zaloguj</a></button>
+        </form>
+    </div>
+    <div id="rejestracja" class="logAndRej" style="display: none;">
+        <form action="" class="loginForm">
+            <p id="pNav">Rejestracja</p>
+            <p id="pCentered">Załóż konto w naszym serwisie</p>
+            <input type="email" placeholder="Adres e-mail">
+            <input type="password" placeholder="Hasło">
+            <input type="password" placeholder="Powtórz hasło">
+            <p class="info">Rejestrując się, akceptujesz <a href="#">Polityka prywatności</a> oraz <a href="">Warunki użytkowania</a></p>
+            <button>Załóż konto</button>
+        </form>
+    </div>
     <header class="container">
         <div class="head">
             <div class="logo">
                 <a href="#">FLY.COM</a>
             </div>
             <ul class="navBar">
-                <li><a id="navBar1" href="#">Zarezerwuj</a></li>
-                <li><a id="navBar2" href="#">Promocje</a></li>
-                <li><a id="navBar3" href="#">Zaplanuj podróż</a></li>
-                <li><a id="navBar4" href="#">Obsługa klienta</a></li>
-                <li><a id="navBar5" href="#">Logowanie</a></li>
+                <li id="navBar1"><a href="#">Zarezerwuj</a></li>
+                <li id="navBar2"><a href="#">Promocje</a></li>
+                <li id="navBar3"><a href="#">Zaplanuj podróż</a></li>
+                <li id="navBar4"><a href="#">Obsługa klienta</a></li>
+                <li id="navBar5"><a href="#login" rel="modal:open">Logowanie</a></li>
+                <li id="navBar6"><a href="#rejestracja" rel="modal:open">Rejestracja</a></li>
             </ul>
         </div>
         <div class="showMenu" id="showMenu1">
             <ul class="subMenu">
-                <li><a href="#">Lot</a>
+                <li><a class="mainLink" href="#">Lot</a>
                     <span>Kup bilet do każdego zakątka świata</span></li>
-                <li><a href="#">Hotel</a>
+                <li><a class="mainLink" href="#">Hotel</a>
                     <span>Znajdź dogodny nocleg w promocyjnych cenach</span></li>
-                <li><a href="#">Samochód</a>
+                <li><a class="mainLink" href="#">Samochód</a>
                     <span>Wypożycz samochód na atrakcyjnych warunkach</span></li>
-                <li><a href="#">Parking</a>
+                <li><a class="mainLink" href="#">Parking</a>
                     <span>Znajdź miejsce do parkowania w pobliżu noclegu</span></li>
-                <li><a href="#">Atrakcje</a>
+                <li><a class="mainLink" href="#">Atrakcje</a>
                     <span>Wyszukaj najlepsze atrakcje, których nie możesz przegapić</span></li>
+            </ul>
+        </div>
+        <div class="showMenu" id="showMenu2">
+            <ul class="subMenu">
+                <li><a class="mainLink" href="#">Promocje</a>
+                    <ul>
+                        <li><a href="#">Sprawdź aktualne oferty</a></li>
+                        <li><a href="#">Zniżki</a></li>
+                        <li><a href="#">Karta dużej rodziny</a></li>
+                    </ul>
+                </li>
+                <li><a class="mainLink" href="#">Programy lojalnościowe</a>
+                    <ul>
+                        <li><a href="#">Karta dla firm</a></li>
+                        <li><a href="#">Karta zniżkowa</a></li>
+                    </ul>
+                </li>
+                <li><a class="mainLink" href="#">Oferta dla grup</a>
+                    <span>Znajdź oferty podróży dla grup powyżej 5 osób</span></li>
+                <li><a class="mainLink" href="#">Sklep FLY</a>
+                    <span>Zamów produkty z dostawą na pokład lub prosto do domu bądź hotelu</span></li>
+                <li><a class="mainLink" href="#">3w1</a>
+                    <span>Kup bilet na samolot a hotel i samochód do wynajęcia otrzymasz w atrakcyjnej cenie</span></li>
+            </ul>
+        </div>
+        <div class="showMenu" id="showMenu3">
+            <ul class="subMenu">
+                <li><a class="mainLink" href="#">Planowanie</a>
+                    <ul>
+                        <li><a href="#">Podróże w trasach europejskich</a></li>
+                        <li><a href="#">FLY dla dzieci</a></li>
+                        <li><a href="#">FLY Business Lounge</a></li>
+                        <li><a href="#">Taryfa economy</a></li>
+                    </ul>
+                </li>
+                <li><a class="mainLink" href="#">Przygotowanie do lotu</a>
+                    <ul>
+                        <li><a href="#">Podróż do/z USA</a></li>
+                        <li><a href="#">Podróż do/z Kanady</a></li>
+                        <li><a href="#">Podróż do/z Wielkiej Brytanii</a></li>
+                        <li><a href="#">Podróż do/z Japoni</a></li>
+                        <li><a href="#">Pasażerowie z ograniczoną mobilnością</a></li>
+                        <li><a href="#">Podróż ze zwierzętami</a></li>
+                    </ul>
+                </li>
+                <li><a class="mainLink" href="#">Bagaż</a>
+                    <ul>
+                        <li><a href="#">Bagaż podręczny</a></li>
+                        <li><a href="#">Bagaż rejestrowany</a></li>
+                        <li><a href="#">Bagaż dodatkowy</a></li>
+                        <li><a href="#">Dodatkowe opłaty</a></li>
+                        <li><a href="#">Bagaż zabroniony</a></li>
+                    </ul>
+                </li>
+                <li><a class="mainLink" href="#">Odprawa</a>
+                    <ul>
+                        <li><a href="#">Przez internet</a></li>
+                        <li><a href="#">Na lotnisku</a></li>
+                        <li><a href="#">Na lotnisku - automatycznie</a></li>
+                    </ul>
+                </li>
+                <li><a class="mainLink" href="#">Usługi dodatkowe</a>
+                    <ul>
+                        <li><a href="#">Ubezpieczenie podróżne</a></li>
+                        <li><a href="#">FLY premium</a></li>
+                        <li><a href="#">Usługi kiosku.FLY</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="showMenu" id="showMenu4">
+            <ul class="subMenu">
+                <li><a class="mainLink" href="#">Kontakt</a>
+                    <ul>
+                        <li><a href="#">Aktuaności</a></li>
+                        <li><a href="#">Formularz kontaktowy</a></li>
+                        <li><a href="#">Zamów fakturę</a></li>
+                    </ul>
+                </li>
+                <li><a class="mainLink" href="#">FAQ</a>
+                    <ul>
+                        <li><a href="#">Top 10 popularnych pytań</a></li>
+                        <li><a href="#">Planowanie podróży</a></li>
+                        <li><a href="#">Przygotowanie do podróży</a></li>
+                        <li><a href="#">W trakcie podróży</a></li>
+                        <li><a href="#">Po podróży</a></li>
+                    </ul>
+                </li>
+                <li><a class="mainLink" href="#">Status lotu</a>
+                    <span>Sprawdź status swojego lotu</span></li>
+                <li><a class="mainLink" href="#">Metody płatności</a>
+                    <span>Sprawdź dostępne metody płatności</span></li>
+                <li><a class="mainLink" href="#">Biura FLY</a>
+                    <span>Sprawdź gdzie mamy nasze siedziby</span></li>
             </ul>
         </div>
         <div class="search-widget"></div>
