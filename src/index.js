@@ -100,7 +100,7 @@ function tworzenieKonta() {
                 info.innerHTML = "Podana nazwa użytkownika jest zbyt długa!";
             }
             else {
-                if (password.length < 0) {
+                if (password.length < 8) {
                     info.innerHTML = "Podano zbyt krótkie hasło!";
                 }
                 else {
