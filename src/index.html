@@ -18,7 +18,9 @@
             <p id="pCentered">Zaloguj się na swoje konto</p>
             <input id="mail" type="email" placeholder="Adres e-mail">
             <input id="password" type="password" placeholder="Hasło">
-            <div class="info"><p id="wrongInfo"></p><a href="#">Nie pamiętasz hasła?</a></div>
+            <div class="info">
+                <p id="wrongInfo"></p><a href="#">Nie pamiętasz hasła?</a>
+            </div>
             <button type="submit">Zaloguj</button>
         </form>
     </div>
@@ -30,7 +32,8 @@
             <input type="email" placeholder="Adres e-mail">
             <input type="password" placeholder="Hasło">
             <input type="password" placeholder="Powtórz hasło">
-            <div id="rejAkcept">Rejestrując się, akceptujesz <a href="#">Polityka prywatności</a> oraz <a href="#">Warunki użytkowania</a>.</div>
+            <div id="rejAkcept">Rejestrując się, akceptujesz <a href="#">Polityka prywatności</a> oraz <a
+                    href="#">Warunki użytkowania</a>.</div>
             <button type="submit">Załóż konto</button>
         </form>
     </div>
@@ -39,13 +42,21 @@
             <div class="logo">
                 <a href="#">FLY.COM</a>
             </div>
-            <ul class="navBar">
+            <ul class="navBar" id="myUl">
                 <li id="navBar1"><a href="#">Zarezerwuj</a></li>
                 <li id="navBar2"><a href="#">Promocje</a></li>
                 <li id="navBar3"><a href="#">Zaplanuj podróż</a></li>
                 <li id="navBar4"><a href="#">Obsługa klienta</a></li>
                 <li id="navBar5"><a href="#login" rel="modal:open">Logowanie</a></li>
                 <li id="navBar6"><a href="#rejestracja" rel="modal:open">Rejestracja</a></li>
+                <li id="navBar7" style="display: none; padding-bottom: 0px; margin: 0px;">
+                    <b class="dropdown" id="loginA"></b>
+                    <div class="dropdownContent" style="display: none;">
+                        <a href="#">Profil</a>
+                        <a href="#">Moje bilety</a>
+                        <a href="#" id="logOut">Wyloguj</a>
+                    </div>
+                </li>
             </ul>
         </div>
         <div class="showMenu" id="showMenu1">

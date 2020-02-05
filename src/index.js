@@ -26,6 +26,12 @@ $(document).ready(function () {
         function () {
             $("#showMenu4").hide();
         });
+    $("#navBar7, .dropdownContent").hover(function () {
+        $(".dropdownContent").show();
+    },
+        function () {
+            $(".dropdownContent").hide();
+        });
 });
 
 document.getElementById("login").addEventListener("submit", logowanie);
@@ -35,22 +41,32 @@ function logowanie() {
     const info = document.getElementById("wrongInfo");
     const login = document.getElementById("mail").value;
     const password = document.getElementById("password").value;
-    if (login != "") {
-        Object.keys(users).forEach(function (key) {
-            if (login == key) {
-                if (password == users[login].password) {
-                    info.innerHTML = "";
-                    $('#loginClear').children('input').val('')
-                    $(".blocker").remove();
-                }
-                else {
-                    info.innerHTML = "Niepoprawny email lub hasło!";
-                }
-            }
-        });
+    if (login in users) {
+        const usersLogin = users[login];
+        if (password == usersLogin.password) {
+            info.innerHTML = "";
+            console.log(usersLogin.username);
+            $('#loginClear').children('input').val('')
+            $(".blocker").remove();
+            $("#navBar5, #navBar6").hide();
+            const myLi = document.getElementById("loginA");
+            const myA = document.createElement("a");
+            myA.setAttribute("href", "#");
+            myA.setAttribute("id", "logA");
+            myA.innerText = usersLogin.username;
+            myLi.appendChild(myA);
+            $("#navBar7").show();
+        }
+        else {
+            info.innerHTML = "Niepoprawne hasło!";
+        }
     }
     else {
-        info.innerHTML = "Nie podano adresu email!";
+        info.innerHTML = "Podany adres email nie istnieje w bazie!";
     }
 }
 
+document.getElementById("logOut").addEventListener("click", function() {
+    $("#navBar5, #navBar6").show();
+    $("#navBar7").hide();
+})
