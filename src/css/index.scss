@@ -132,7 +132,7 @@ a {
             padding: 5px;
             margin: 5px auto;
         }
-        button {
+        #button {
             font-size: inherit;
             color: white;
             background-color: rgb(35, 35, 168);
@@ -142,11 +142,27 @@ a {
             margin: 5px auto;
         }
         .info {
-            padding: 0px;
-            text-align: center;
-            font-size: 0.8rem;
+            overflow: hidden;
             a {
-                color    : rgb(35, 35, 168); 
+                margin-right: 43px;
+                padding: 0px;
+                font-size: 0.8rem;
+                color: rgb(72, 72, 151);
+                float: right;
+            }
+            #wrongInfo {
+                padding: 0px;
+                margin-left: 43px;
+                font-size: 0.8rem;
+                float: left;
+                color: rgb(211, 0, 0);
+            }
+        }
+        #rejAkcept {
+            padding: 0px 43px 0px 43px;
+            font-size: 0.7rem;
+            a {
+                color: rgb(72, 72, 151);
             }
         }
     }

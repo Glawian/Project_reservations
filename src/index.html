@@ -16,20 +16,21 @@
         <form action="" class="loginForm">
             <p id="pNav">Logowanie</p>
             <p id="pCentered">Zaloguj się na swoje konto</p>
-            <input type="email" placeholder="Adres e-mail">
-            <input type="password" placeholder="Hasło">
-            <p class="info"><a href="#">Nie pamiętasz hasła?</a></p>
-            <button><a href="#">Zaloguj</a></button>
+            <input id="mail" type="email" placeholder="Adres e-mail">
+            <input id="password" type="password" placeholder="Hasło">
+            <div class="info"><p id="wrongInfo"></p><a href="#">Nie pamiętasz hasła?</a></div>
+            <input id="button" type="submit" id="buttonLogin"></input>
         </form>
     </div>
     <div id="rejestracja" class="logAndRej" style="display: none;">
         <form action="" class="loginForm">
             <p id="pNav">Rejestracja</p>
             <p id="pCentered">Załóż konto w naszym serwisie</p>
+            <input type="text" placeholder="Nazwa użytkownika">
             <input type="email" placeholder="Adres e-mail">
             <input type="password" placeholder="Hasło">
             <input type="password" placeholder="Powtórz hasło">
-            <p class="info">Rejestrując się, akceptujesz <a href="#">Polityka prywatności</a> oraz <a href="">Warunki użytkowania</a></p>
+            <div id="rejAkcept">Rejestrując się, akceptujesz <a href="#">Polityka prywatności</a> oraz <a href="#">Warunki użytkowania</a>.</div>
             <button>Załóż konto</button>
         </form>
     </div>

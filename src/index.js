@@ -1,4 +1,5 @@
 import style from "./css/index.scss"
+import users from "./users.json"
 $(".showMenu").hide();
 $(document).ready(function () {
     $("#navBar1, #showMenu1").hover(function () {
@@ -26,3 +27,29 @@ $(document).ready(function () {
             $("#showMenu4").hide();
         });
 });
+
+document.getElementById("buttonLogin").addEventListener("click", logowanie);
+console.log(users);
+
+function logowanie() {
+    const info = document.getElementById("wrongInfo");
+    const login = document.getElementById("mail").value;
+    const password = document.getElementById("password").value;
+    if (login != "") {
+        Object.keys(users).forEach(function (key) {
+            if (login == key) {
+                console.log(users[login].password);
+                if (password == users[login].password) {
+                    info.innerHTML = "";
+                }
+                else {
+                    info.innerHTML = "Niepoprawny email lub hasło!";
+                }
+            }
+        });
+    }
+    else {
+        info.innerHTML = "Nie podano adresu email!";
+    }
+}
+
