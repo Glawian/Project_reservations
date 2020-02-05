@@ -28,7 +28,7 @@ $(document).ready(function () {
         });
 });
 
-document.getElementById("buttonLogin").addEventListener("click", logowanie);
+document.getElementById("login").addEventListener("submit", logowanie);
 console.log(users);
 
 function logowanie() {
