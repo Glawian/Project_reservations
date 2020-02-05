@@ -35,7 +35,6 @@ $(document).ready(function () {
 });
 
 document.getElementById("login").addEventListener("submit", logowanie);
-console.log(users);
 
 function logowanie() {
     const info = document.getElementById("wrongInfo");
@@ -66,7 +65,58 @@ function logowanie() {
     }
 }
 
-document.getElementById("logOut").addEventListener("click", function() {
+document.getElementById("logOut").addEventListener("click", function () {
     $("#navBar5, #navBar6").show();
     $("#navBar7").hide();
 })
+
+document.getElementById("rejestracja").addEventListener("submit", tworzenieKonta);
+
+function tworzenieKonta() {
+    const info = document.getElementById("wrongInfoRej");
+    const user = document.getElementById("userRej").value;
+    const email = document.getElementById("emailRej").value;
+    const password = document.getElementById("passRej").value;
+    const password2 = document.getElementById("pass2Rej").value;
+    const tab = [user, email, password, password2];
+    const tabArray = [];
+    tab.forEach(function (item) {
+        if (item != "") {
+            tabArray.push("1");
+        }
+        else {
+            tabArray.push("0");
+        }
+    });
+    if (tabArray.indexOf("0") != "-1") {
+        info.innerHTML = "Nie uzupełniono wszystkich pól!";
+    }
+    else {
+        if (email in users) {
+            info.innerHTML = "Konto z podanym adresem email już istnieje!";
+        }
+        else {
+            if (user.length >= 12) {
+                info.innerHTML = "Podana nazwa użytkownika jest zbyt długa!";
+            }
+            else {
+                if (password.length < 0) {
+                    info.innerHTML = "Podano zbyt krótkie hasło!";
+                }
+                else {
+                    if (password != password2) {
+                        info.innerHTML = "Podane hasła nie są takie same!";
+                    }
+                    else {
+                        users[email] = {
+                            "password": password,
+                            "username": user
+                        };
+                        $('#loginClear').children('input').val('')
+                        $(".blocker").remove();
+                    }
+                }
+            }
+        }
+    }
+}
