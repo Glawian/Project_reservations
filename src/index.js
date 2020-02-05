@@ -38,9 +38,10 @@ function logowanie() {
     if (login != "") {
         Object.keys(users).forEach(function (key) {
             if (login == key) {
-                console.log(users[login].password);
                 if (password == users[login].password) {
                     info.innerHTML = "";
+                    $('#loginClear').children('input').val('')
+                    $(".blocker").remove();
                 }
                 else {
                     info.innerHTML = "Niepoprawny email lub hasło!";
