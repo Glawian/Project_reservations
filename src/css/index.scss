@@ -1,213 +1,303 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
 body {
-    background-color: #f4f4f4;
-    color           : #555555;
-    font-family     : "Roboto";
-    font-size       : 1rem;
-    font-weight     : normal;
-    line-height     : 1.6em;
-    margin          : 0;
+  background-color: #f4f4f4;
+  color: #555555;
+  font-family: "Roboto";
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.6em;
+  margin: 0;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
 }
 
 ul {
-    list-style: none;
-    margin    : 0px;
-    padding   : 0px;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
 }
 
 a {
-    text-decoration: none;
-    color          : inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+input:focus {
+  outline: none;
 }
 
 .container {
-    text-align: center;
-    width     : 100%;
-    margin    : 0 auto;
-    max-width : 1200px;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
 .head {
-    display   : block;
-    margin-top: 20px;
+  display: block;
+  margin-top: 20px;
 }
 
 .logo {
-    float    : left;
-    font-size: 1.2rem;
-    color    : black;
+  float: left;
+  font-size: 1.2rem;
+  color: black;
 }
 
 .navBar {
-    float    : right;
-    font-size: 1.2rem;
-
-    li {
-        display       : inline-block;
-        margin-left   : 30px;
-        padding-bottom: 20px;
-        z-index       : 9999;
-
-        &:hover {
-            color: rgb(35, 35, 168);
-        }
-
-        .dropdown {
-            padding : 0px 30px;
-            position: relative;
-        }
-
-        .dropdownContent {
-            display   : block;
-            position  : absolute;
-            min-width : 200px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index   : 1;
-
-            a {
-                padding   : 10px;
-                color     : #555555;
-                text-align: left;
-                display   : block;
-
-                &:hover {
-                    color           : rgb(35, 35, 168);
-                    background-color: #dbdada;
-                }
-            }
-        }
+  float: right;
+  font-size: 1.2rem;
+  li {
+    display: inline-block;
+    margin-left: 30px;
+    padding-bottom: 20px;
+    z-index: 9999;
+    &:hover {
+      color: rgba(9, 52, 121, 0.85);
     }
+    .dropdown {
+      padding: 0px 30px;
+      position: relative;
+    }
+    .dropdownContent {
+      display: block;
+      position: absolute;
+      min-width: 200px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      background-color: #f4f4f4;
+      a {
+        padding: 10px;
+        color: #555555;
+        text-align: left;
+        display: block;
+        &:hover {
+          color: rgba(9, 52, 121, 0.85);
+          background-color: #dbdada;
+        }
+      }
+    }
+  }
 }
 
 .showMenu {
-    text-align : left;
-    position   : absolute;
-    top        : 50px;
-    display    : block;
-    height     : auto;
-    margin-top : 10px;
-    padding-top: 15px;
-    border-top : 2px solid darkgrey;
-
-    li {
-        display: inline-block;
-        width  : 240px;
-
-        a {
-            font-size: 1.2rem;
-            color    : rgb(35, 35, 168);
-        }
-
-        a:hover {
-            color: rgb(72, 72, 151);
-        }
-
-        span {
-            float       : left;
-            font-size   : 0.8rem;
-            padding-left: 0.5em;
-            margin-left : 0.5em;
-            width       : 90%;
-            border-left : 1px solid darkgrey;
-        }
-
-        li {
-            a {
-                font-size: inherit;
-            }
-
-            .mainLink {
-                font-size: 1rem;
-            }
-
-            font-size   : 0.8rem;
-            float       : left;
-            padding-left: 0.5em;
-            margin-left : 0.5em;
-            width       : 90%;
-            border-left : 1px solid darkgrey;
-        }
+  text-align: left;
+  position: absolute;
+  top: 50px;
+  display: block;
+  height: auto;
+  margin-top: 10px;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  border-top: 2px solid darkgrey;
+  z-index: 1;
+  background-color: #f4f4f4;
+  li {
+    display: inline-block;
+    width: 240px;
+    a {
+      font-size: 1.2rem;
+      color: rgba(9, 52, 121, 0.85);
     }
+    a:hover {
+      color: rgb(72, 72, 151);
+    }
+    span {
+      float: left;
+      font-size: 0.8rem;
+      padding-left: 0.5em;
+      margin-left: 0.5em;
+      width: 90%;
+      border-left: 1px solid darkgrey;
+    }
+    li {
+      a {
+        font-size: inherit;
+      }
+      .mainLink {
+        font-size: 1rem;
+      }
+      font-size: 0.8rem;
+      float: left;
+      padding-left: 0.5em;
+      margin-left: 0.5em;
+      width: 90%;
+      border-left: 1px solid darkgrey;
+    }
+  }
 }
 
 .logAndRej {
-    padding      : 0px;
-    border-radius: 0;
-
-    .loginForm {
-        display: inline-block;
-        padding: 0;
-        width  : 100%;
-        height : 100%;
-
-        p {
-            font-size: 1.2rem;
-            margin   : 0;
-            padding  : 10px;
-        }
-
-        #pNav {
-            color           : white;
-            background-color: rgb(35, 35, 168);
-        }
-
-        #pCentered {
-            text-align: center;
-        }
-
-        input {
-            display: block;
-            width  : 80%;
-            padding: 5px;
-            margin : 5px auto;
-        }
-
-        button {
-            font-size       : inherit;
-            color           : white;
-            background-color: rgb(35, 35, 168);
-            display         : block;
-            width           : 60%;
-            padding         : 5px;
-            margin          : 5px auto;
-        }
-
-        .info {
-            overflow: hidden;
-
-            a {
-                margin-right: 43px;
-                padding     : 0px;
-                font-size   : 0.8rem;
-                color       : rgb(72, 72, 151);
-                float       : right;
-            }
-
-            #wrongInfo {
-                padding    : 0px;
-                margin-left: 43px;
-                font-size  : 0.8rem;
-                float      : left;
-                color      : rgb(211, 0, 0);
-            }
-        }
-
-        #wrongInfoRej {
-            padding    : 0px;
-            margin-left: 43px;
-            font-size  : 0.8rem;
-            float      : left;
-            color      : rgb(211, 0, 0);
-        }
-
-        #rejAkcept {
-            padding  : 0px 43px 0px 43px;
-            font-size: 0.7rem;
-
-            a {
-                color: rgb(72, 72, 151);
-            }
-        }
+  padding: 0px;
+  border-radius: 0;
+  .loginForm {
+    display: inline-block;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    p {
+      font-size: 1.2rem;
+      margin: 0;
+      padding: 10px;
     }
+    #pNav {
+      color: white;
+      background-color: rgba(9, 52, 121, 0.85);
+    }
+    #pCentered {
+      text-align: center;
+    }
+    input {
+      display: block;
+      width: 80%;
+      padding: 5px;
+      margin: 5px auto;
+    }
+    button {
+      font-size: inherit;
+      background-color: rgb(221, 221, 78);
+      color: rgb(35, 35, 168);
+      border: 0;
+      display: block;
+      width: 60%;
+      padding: 5px;
+      margin: 5px auto;
+    }
+    .info {
+      overflow: hidden;
+      width: 80%;
+      margin: auto;
+      #wrongInfoA {
+        padding: 0px;
+        font-size: 0.8rem;
+        color: rgba(9, 52, 121, 0.85);
+        float: right;
+      }
+      #wrongInfo {
+        padding: 0px;
+        font-size: 0.8rem;
+        float: left;
+        color: rgb(211, 0, 0);
+      }
+      #wrongInfoRej {
+        padding: 0px;
+        font-size: 0.8rem;
+        float: left;
+        color: rgb(211, 0, 0);
+      }
+      #rejAkcept {
+        font-size: 0.7rem;
+        a {
+          font-size: 0.7rem;
+          color: rgba(9, 52, 121, 0.85);
+        }
+      }
+    }
+  }
+}
+
+.search-widget {
+  position: relative;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(9, 52, 121, 0.85);
+  color: white;
+  width: 100%;
+  margin: auto;
+  .strony {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem 0 1rem;
+    .inputStrony {
+      align-items: center;
+      background-color: transparent;
+      border: 0;
+      cursor: pointer;
+      display: flex;
+      padding: 0px;
+      margin-left: 20px;
+    }
+  }
+  .displayDiv {
+    display: flex;
+    .inputDivs {
+      width: 75%;
+      .Inputs {
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        text-align: left;
+        align-items: center;
+        margin-bottom: 20px;
+        .divAndInput {
+          display: flex;
+          flex-direction: column;
+          width: 44%;
+          border: 1px solid black;
+          background-color: white;
+          color: #555555;
+          line-height: 2rem;
+          font-size: 1rem;
+          margin-left: 20px;
+          padding-left: 20px;
+          div {
+            margin-bottom: 0.25rem;
+          }
+          input {
+            border: 0;
+            font-size: inherit;
+            margin-bottom: 0.25rem;
+          }
+        }
+        .divAndInputButton {
+          margin-left: 20px;
+          height: 2rem;
+        }
+        .divAndInputBot {
+          display: flex;
+          flex-direction: column;
+          width: 30.7%;
+          border: 1px solid black;
+          background-color: white;
+          color: #555555;
+          line-height: 2rem;
+          font-size: 1rem;
+          margin-left: 20px;
+          padding-left: 20px;
+          div {
+            margin-bottom: 0.25rem;
+          }
+          input {
+            border: 0;
+            font-size: inherit;
+            margin-bottom: 0.25rem;
+          }
+        }
+      }
+    }
+    .buttonSolo {
+      width: 25%;
+      display: flex;
+      margin: 0 20px 20px 20px;
+      button {
+        align-self: flex-end;
+        width: 100%;
+        height: 4rem;
+        font-size: 2rem;
+      }
+    }
+  }
+  button {
+    background-color: rgb(221, 221, 78);
+    color: rgb(35, 35, 168);
+    border: 0;
+    cursor: pointer;
+  }
 }

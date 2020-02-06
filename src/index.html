@@ -19,23 +19,25 @@
             <input id="mail" type="email" placeholder="Adres e-mail">
             <input id="password" type="password" placeholder="Hasło">
             <div class="info">
-                <p id="wrongInfo"></p><a href="#">Nie pamiętasz hasła?</a>
+                <p id="wrongInfo"></p><a id="wrongInfoA" href="#">Nie pamiętasz hasła?</a>
             </div>
             <button type="submit">Zaloguj</button>
         </form>
     </div>
     <div id="rejestracja" class="logAndRej" style="display: none;">
-        <form action="" class="loginForm">
+        <form id="rejClear" action="" class="loginForm">
             <p id="pNav">Rejestracja</p>
             <p id="pCentered">Załóż konto w naszym serwisie</p>
             <input id="userRej" type="text" placeholder="Nazwa użytkownika (maks. 12 znaków)">
             <input id="emailRej" type="email" placeholder="Adres e-mail">
             <input id="passRej" type="password" placeholder="Hasło (min. 8 znaków)">
-            <input id="pass2Rej"type="password" placeholder="Powtórz hasło">
-            <p id="wrongInfoRej"></p>
-            <br>
-            <div id="rejAkcept">Rejestrując się, akceptujesz <a href="#">Polityka prywatności</a> oraz <a
-                    href="#">Warunki użytkowania</a>.</div>
+            <input id="pass2Rej" type="password" placeholder="Powtórz hasło">
+            <div class="info">
+                <p id="wrongInfoRej"></p>
+                <br>
+                <div id="rejAkcept">Rejestrując się, akceptujesz <a href="#">Polityka prywatności</a> oraz <a
+                        href="#">Warunki użytkowania</a>.</div>
+            </div>
             <button type="submit">Załóż konto</button>
         </form>
     </div>
@@ -169,7 +171,54 @@
                     <span>Sprawdź gdzie mamy nasze siedziby</span></li>
             </ul>
         </div>
-        <div class="search-widget"></div>
+        <div class="search-widget">
+            <form action="">
+                <div class="strony">
+                    <div class="inputStrony">
+                        <input type="checkbox">
+                        <p>W obie strony</p>
+                    </div>
+                    <div class="inputStrony">
+                        <input type="checkbox">
+                        <p>W jedną stronę</p>
+                    </div>
+                </div>
+                <div class="displayDiv">
+                    <div class="inputDivs">
+                        <div class="Inputs">
+                            <div class="divAndInput">
+                                <div>Z</div>
+                                <input type="text" placeholder="Wylot">
+                            </div>
+                            <button class="divAndInputButton">
+                                <->
+                            </button>
+                            <div class="divAndInput">
+                                <div>Do</div>
+                                <input type="text" placeholder="Cel podróży">
+                            </div>
+                        </div>
+                        <div class="Inputs">
+                            <div class="divAndInputBot">
+                                <div>Wylot</div>
+                                <input type="text" placeholder="Wybierz datę">
+                            </div>
+                            <div class="divAndInputBot">
+                                <div>Powrót</div>
+                                <input type="text" placeholder="Wybierz datę">
+                            </div>
+                            <div class="divAndInputBot">
+                                <div>Pasażerowie</div>
+                                <input type="text" placeholder="1 Dorosły">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttonSolo">
+                        <button type="submit">Szukaj</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </header>
     <main class="container">
         <div class="loty"></div>

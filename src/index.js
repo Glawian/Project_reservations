@@ -89,22 +89,27 @@ function tworzenieKonta() {
         }
     });
     if (tabArray.indexOf("0") != "-1") {
+        info.style.color = "rgb(211, 0, 0)";
         info.innerHTML = "Nie uzupełniono wszystkich pól!";
     }
     else {
         if (email in users) {
+            info.style.color = "rgb(211, 0, 0)";
             info.innerHTML = "Konto z podanym adresem email już istnieje!";
         }
         else {
             if (user.length >= 12) {
+                info.style.color = "rgb(211, 0, 0)";
                 info.innerHTML = "Podana nazwa użytkownika jest zbyt długa!";
             }
             else {
                 if (password.length < 8) {
+                    info.style.color = "rgb(211, 0, 0)";
                     info.innerHTML = "Podano zbyt krótkie hasło!";
                 }
                 else {
                     if (password != password2) {
+                        info.style.color = "rgb(211, 0, 0)";
                         info.innerHTML = "Podane hasła nie są takie same!";
                     }
                     else {
@@ -112,8 +117,9 @@ function tworzenieKonta() {
                             "password": password,
                             "username": user
                         };
-                        $('#loginClear').children('input').val('')
-                        $(".blocker").remove();
+                        info.style.color = "green";
+                        info.innerHTML = "Pomyślnie utworzono konto!";
+                        $('#rejClear').children('input').val('')
                     }
                 }
             }
