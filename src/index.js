@@ -32,9 +32,40 @@ $(document).ready(function () {
         function () {
             $(".dropdownContent").hide();
         });
+
+    var now = new Date();
+    var day = ("0" + now.getDate()).slice(-2);
+    var month = ("0" + (now.getMonth() + 1)).slice(-2);
+    var today = now.getFullYear() + "-" + (month) + "-" + (day);
+    $('#dateWylot, #datePowrot').val(today);
+
+    $('#checkDwaP').click(function () {
+        $('#checkObie').prop('checked', true);
+        $('#checkJeden').prop('checked', false);
+        $("#checkJedenInput").css('opacity', '1');
+        $('.powrotHide').show();
+    });
+    $('#checkJedenP').click(function () {
+        $('#checkJeden').prop('checked', true);
+        $('#checkObie').prop('checked', false);
+        $("#checkJedenInput").css('opacity', '0');
+        $('.powrotHide').hide();
+    });
+    $('.inputStrony input:checkbox').click(function () {
+        $(this).prop('checked', true);
+        $('.inputStrony input:checkbox').not(this).prop('checked', false);
+        if ($('#checkJeden').prop('checked')) {
+            $("#checkJedenInput").css('opacity', '0');
+            $('.powrotHide').hide();
+        }
+        else {
+            $("#checkJedenInput").css('opacity', '1');
+            $('.powrotHide').show();
+        }
+    });
 });
 
-document.getElementById("login").addEventListener("submit", logowanie);
+document.getElementById("loginClear").addEventListener("submit", logowanie);
 
 function logowanie() {
     const info = document.getElementById("wrongInfo");
@@ -68,6 +99,7 @@ function logowanie() {
 document.getElementById("logOut").addEventListener("click", function () {
     $("#navBar5, #navBar6").show();
     $("#navBar7").hide();
+    $('#logA').remove('');
 })
 
 document.getElementById("rejestracja").addEventListener("submit", tworzenieKonta);

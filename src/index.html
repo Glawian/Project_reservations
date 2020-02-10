@@ -8,7 +8,7 @@
     <title>Rezerwacje online</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"/>
 </head>
 
 <body>
@@ -175,12 +175,12 @@
             <form action="">
                 <div class="strony">
                     <div class="inputStrony">
-                        <input type="checkbox">
-                        <p>W obie strony</p>
+                        <input type="checkbox" checked="true" id="checkObie">
+                        <p id="checkDwaP">W obie strony</p>
                     </div>
                     <div class="inputStrony">
-                        <input type="checkbox">
-                        <p>W jedną stronę</p>
+                        <input type="checkbox" id="checkJeden">
+                        <p id="checkJedenP">W jedną stronę</p>
                     </div>
                 </div>
                 <div class="displayDiv">
@@ -201,11 +201,11 @@
                         <div class="Inputs">
                             <div class="divAndInputBot">
                                 <div>Wylot</div>
-                                <input type="text" placeholder="Wybierz datę">
+                                <input type="date" id="dateWylot">
                             </div>
-                            <div class="divAndInputBot">
-                                <div>Powrót</div>
-                                <input type="text" placeholder="Wybierz datę">
+                            <div class="divAndInputBot" id="checkJedenInput">
+                                <div class="powrotHide">Powrót</div>
+                                <input class="powrotHide" type="date" id="datePowrot">
                             </div>
                             <div class="divAndInputBot">
                                 <div>Pasażerowie</div>
