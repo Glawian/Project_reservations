@@ -55,14 +55,17 @@ $(document).ready(function () {
         $(this).prop('checked', true);
         $('.inputStrony input:checkbox').not(this).prop('checked', false);
         if ($('#checkJeden').prop('checked')) {
-            $("#checkJedenInput").css('opacity', '0');
+            $('#checkJedenInput').css('opacity', '0');
             $('.powrotHide').hide();
         }
         else {
-            $("#checkJedenInput").css('opacity', '1');
+            $('#checkJedenInput').css('opacity', '1');
             $('.powrotHide').show();
         }
     });
+    $('#openPass').click(function () {
+        $('#wyborPas').toggle();
+    })
 });
 
 document.getElementById("loginClear").addEventListener("submit", logowanie);

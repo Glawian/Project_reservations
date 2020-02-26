@@ -8,7 +8,7 @@
     <title>Rezerwacje online</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </head>
 
 <body>
@@ -187,29 +187,123 @@
                     <div class="inputDivs">
                         <div class="Inputs">
                             <div class="divAndInput">
-                                <div>Z</div>
-                                <input type="text" placeholder="Wylot">
+                                <div class="inDiv">Z</div>
+                                <select id="zInput">
+                                    <optgroup label="Europa">
+                                        <option value="Wrocław">Wrocław</option>
+                                        <option value="Warszawa">Warszawa</option>
+                                        <option value="Londyn">Londyn</option>
+                                    </optgroup>
+                                    <optgroup label="Azja">
+                                        <option value="Tokio">Tokio</option>
+                                    </optgroup>
+                                </select>
                             </div>
                             <button class="divAndInputButton">
                                 <->
                             </button>
                             <div class="divAndInput">
-                                <div>Do</div>
-                                <input type="text" placeholder="Cel podróży">
+                                <div class="inDiv">Do</div>
+                                <select id="doInput">
+                                    <option value="default" selected="selected">Wybierz miejsce przylotu</option>
+                                    <optgroup label="Europa">
+                                        <option value="Wrocław">Wrocław</option>
+                                        <option value="Warszawa">Warszawa</option>
+                                        <option value="Londyn">Londyn</option>
+                                    </optgroup>
+                                    <optgroup label="Azja">
+                                        <option value="Tokio">Tokio</option>
+                                    </optgroup>
+                                </select>
                             </div>
                         </div>
                         <div class="Inputs">
                             <div class="divAndInputBot">
-                                <div>Wylot</div>
+                                <div class="inDiv">Wylot</div>
                                 <input type="date" id="dateWylot">
                             </div>
                             <div class="divAndInputBot" id="checkJedenInput">
-                                <div class="powrotHide">Powrót</div>
+                                <div class="powrotHide inDiv">Powrót</div>
                                 <input class="powrotHide" type="date" id="datePowrot">
                             </div>
                             <div class="divAndInputBot">
-                                <div>Pasażerowie</div>
-                                <input type="text" placeholder="1 Dorosły">
+                                <div class="inDiv">Pasażerowie</div>
+                                <a id="openPass" href="#">
+                                    <span id="spanPass">1 pasażer</span>
+                                </a>
+                                <div id="wyborPas" style="display: none;">
+                                    <div class="labelSpan">
+                                        <label>
+                                            <span class="spanTop">Dorośli</span>
+                                            <span class="spanBottom">powyżej 16 lat</span>
+                                        </label>
+                                        <select name="dorosli" id="dorosliNum">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                        </select>
+                                    </div>
+                                    <div class="labelSpan">
+                                        <label>
+                                            <span class="spanTop">Nastolatkwie</span>
+                                            <span class="spanBottom">od 12 do 15 lat</span>
+                                        </label>
+                                        <select name="nastolatkowie" id="nastolatkowieNum">
+                                            <option value="1">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                        </select>
+                                    </div>
+                                    <div class="labelSpan">
+                                        <label>
+                                            <span class="spanTop">Dzieci</span>
+                                            <span class="spanBottom">od 2 do 11 lat</span>
+                                        </label>
+                                        <select name="dzieci" id="dzieciNum">
+                                            <option value="1">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                        </select>
+                                    </div>
+                                    <div class="labelSpan">
+                                        <label>
+                                            <span class="spanTop">Niemowlęta</span>
+                                            <span class="spanBottom">od 0 do 24 miesięcy</span>
+                                        </label>
+                                        <select name="niemowleta" id="niemowletaNum">
+                                            <option value="1">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
