@@ -38,6 +38,25 @@ $(document).ready(function () {
     var month = ("0" + (now.getMonth() + 1)).slice(-2);
     var today = now.getFullYear() + "-" + (month) + "-" + (day);
     $('#dateWylot, #datePowrot').val(today);
+    var dateWylot = document.getElementById("dateWylot");
+    var datePowrot = document.getElementById("datePowrot");
+    dateWylot.setAttribute("min", today);
+    datePowrot.setAttribute("min", today);
+    dateWylot.addEventListener("change", () => {
+        $('#datePowrot').val(dateWylot.value);
+        datePowrot.setAttribute("min", dateWylot.value);
+    })
+
+    $('#dorosliNum, #nastolatkowieNum, #dzieciNum, #niemowletaNum').change( () => {
+        var sum = parseInt($('#dorosliNum').val()) + parseInt($('#nastolatkowieNum').val()) + parseInt($('#dzieciNum').val()) + parseInt($('#niemowletaNum').val());
+        var spanPass = document.getElementById('spanPass');
+        if (sum != 1) {
+            spanPass.innerHTML = sum + " pasażerów";
+        }
+        else {
+            spanPass.innerHTML = sum + " pasażer";
+        }
+    })
 
     $('#checkDwaP').click(function () {
         $('#checkObie').prop('checked', true);
