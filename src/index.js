@@ -47,7 +47,7 @@ $(document).ready(function () {
         datePowrot.setAttribute("min", dateWylot.value);
     })
 
-    $('#dorosliNum, #nastolatkowieNum, #dzieciNum, #niemowletaNum').change( () => {
+    $('#dorosliNum, #nastolatkowieNum, #dzieciNum, #niemowletaNum').change(() => {
         var sum = parseInt($('#dorosliNum').val()) + parseInt($('#nastolatkowieNum').val()) + parseInt($('#dzieciNum').val()) + parseInt($('#niemowletaNum').val());
         var spanPass = document.getElementById('spanPass');
         if (sum != 1) {
@@ -85,98 +85,134 @@ $(document).ready(function () {
     $('#openPass').click(function () {
         $('#wyborPas').toggle();
     })
-});
 
-document.getElementById("loginClear").addEventListener("submit", logowanie);
+    document.getElementById("loginClear").addEventListener("submit", logowanie);
 
-function logowanie() {
-    const info = document.getElementById("wrongInfo");
-    const login = document.getElementById("mail").value;
-    const password = document.getElementById("password").value;
-    if (login in users) {
-        const usersLogin = users[login];
-        if (password == usersLogin.password) {
-            info.innerHTML = "";
-            console.log(usersLogin.username);
-            $('#loginClear').children('input').val('')
-            $(".blocker").remove();
-            $("#navBar5, #navBar6").hide();
-            const myLi = document.getElementById("loginA");
-            const myA = document.createElement("a");
-            myA.setAttribute("href", "#");
-            myA.setAttribute("id", "logA");
-            myA.innerText = usersLogin.username;
-            myLi.appendChild(myA);
-            $("#navBar7").show();
-        }
-        else {
-            info.innerHTML = "Niepoprawne hasło!";
-        }
-    }
-    else {
-        info.innerHTML = "Podany adres email nie istnieje w bazie!";
-    }
-}
-
-document.getElementById("logOut").addEventListener("click", function () {
-    $("#navBar5, #navBar6").show();
-    $("#navBar7").hide();
-    $('#logA').remove('');
-})
-
-document.getElementById("rejestracja").addEventListener("submit", tworzenieKonta);
-
-function tworzenieKonta() {
-    const info = document.getElementById("wrongInfoRej");
-    const user = document.getElementById("userRej").value;
-    const email = document.getElementById("emailRej").value;
-    const password = document.getElementById("passRej").value;
-    const password2 = document.getElementById("pass2Rej").value;
-    const tab = [user, email, password, password2];
-    const tabArray = [];
-    tab.forEach(function (item) {
-        if (item != "") {
-            tabArray.push("1");
-        }
-        else {
-            tabArray.push("0");
-        }
-    });
-    if (tabArray.indexOf("0") != "-1") {
-        info.style.color = "rgb(211, 0, 0)";
-        info.innerHTML = "Nie uzupełniono wszystkich pól!";
-    }
-    else {
-        if (email in users) {
-            info.style.color = "rgb(211, 0, 0)";
-            info.innerHTML = "Konto z podanym adresem email już istnieje!";
-        }
-        else {
-            if (user.length >= 12) {
-                info.style.color = "rgb(211, 0, 0)";
-                info.innerHTML = "Podana nazwa użytkownika jest zbyt długa!";
+    function logowanie() {
+        event.preventDefault();
+        const info = document.getElementById("wrongInfo");
+        const login = document.getElementById("mail").value;
+        const password = document.getElementById("password").value;
+        if (login in users) {
+            const usersLogin = users[login];
+            if (password == usersLogin.password) {
+                info.innerHTML = "";
+                console.log(usersLogin.username);
+                $('#loginClear').children('input').val('')
+                $(".blocker").remove();
+                $("#navBar5, #navBar6").hide();
+                const myLi = document.getElementById("loginA");
+                const myA = document.createElement("a");
+                myA.setAttribute("href", "#");
+                myA.setAttribute("id", "logA");
+                myA.innerText = usersLogin.username;
+                myLi.appendChild(myA);
+                $("#navBar7").show();
             }
             else {
-                if (password.length < 8) {
+                info.innerHTML = "Niepoprawne hasło!";
+            }
+        }
+        else {
+            info.innerHTML = "Podany adres email nie istnieje w bazie!";
+        }
+    }
+
+    document.getElementById("logOut").addEventListener("click", function () {
+        $("#navBar5, #navBar6").show();
+        $("#navBar7").hide();
+        $('#logA').remove('');
+    })
+
+    document.getElementById("rejestracja").addEventListener("submit", tworzenieKonta);
+
+    function tworzenieKonta() {
+        event.preventDefault();
+        const info = document.getElementById("wrongInfoRej");
+        const user = document.getElementById("userRej").value;
+        const email = document.getElementById("emailRej").value;
+        const password = document.getElementById("passRej").value;
+        const password2 = document.getElementById("pass2Rej").value;
+        const tab = [user, email, password, password2];
+        const tabArray = [];
+        tab.forEach(function (item) {
+            if (item != "") {
+                tabArray.push("1");
+            }
+            else {
+                tabArray.push("0");
+            }
+        });
+        if (tabArray.indexOf("0") != "-1") {
+            info.style.color = "rgb(211, 0, 0)";
+            info.innerHTML = "Nie uzupełniono wszystkich pól!";
+        }
+        else {
+            if (email in users) {
+                info.style.color = "rgb(211, 0, 0)";
+                info.innerHTML = "Konto z podanym adresem email już istnieje!";
+            }
+            else {
+                if (user.length >= 12) {
                     info.style.color = "rgb(211, 0, 0)";
-                    info.innerHTML = "Podano zbyt krótkie hasło!";
+                    info.innerHTML = "Podana nazwa użytkownika jest zbyt długa!";
                 }
                 else {
-                    if (password != password2) {
+                    if (password.length < 8) {
                         info.style.color = "rgb(211, 0, 0)";
-                        info.innerHTML = "Podane hasła nie są takie same!";
+                        info.innerHTML = "Podano zbyt krótkie hasło!";
                     }
                     else {
-                        users[email] = {
-                            "password": password,
-                            "username": user
-                        };
-                        info.style.color = "green";
-                        info.innerHTML = "Pomyślnie utworzono konto!";
-                        $('#rejClear').children('input').val('')
+                        if (password != password2) {
+                            info.style.color = "rgb(211, 0, 0)";
+                            info.innerHTML = "Podane hasła nie są takie same!";
+                        }
+                        else {
+                            users[email] = {
+                                "password": password,
+                                "username": user
+                            };
+                            info.style.color = "green";
+                            info.innerHTML = "Pomyślnie utworzono konto!";
+                            $('#rejClear').children('input').val('')
+                        }
                     }
                 }
             }
         }
     }
-}
+
+    document.getElementById("changeZDo").addEventListener("click", function () {
+        var z = $("#zInput").val();
+        var doo = $("#doInput").val();
+        if (doo === "default") {
+
+        } else {
+            $("#zInput").val(doo);
+            $("#doInput").val(z);
+        }
+    })
+
+    document.getElementById("submitSearch").addEventListener("click", buyTicketStep1);
+
+    function buyTicketStep1() {
+        event.preventDefault();
+        var z = $("#zInput").val();
+        var doo = $("#doInput").val();
+        // if (doo === null) {
+        //     $("#doInput").css("color", "red");
+        //     return false;
+        // } else {
+        //     $("#doInput").css("color", "black");
+        // }
+        var wylot = $("#dateWylot").val();
+        var powrot = $("#datePowrot").val();
+        var sum = parseInt($('#dorosliNum').val()) + parseInt($('#nastolatkowieNum').val()) + parseInt($('#dzieciNum').val()) + parseInt($('#niemowletaNum').val());
+        $(".search-widget").hide();
+        $("#buyTicket").show();
+        document.getElementById("spanWylot").innerHTML = z + " ---> " + doo;
+    }
+
+
+
+});

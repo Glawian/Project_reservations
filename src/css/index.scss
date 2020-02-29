@@ -2,12 +2,12 @@
 
 body {
   background-color: #f4f4f4;
-  color: #555555;
-  font-family: "Roboto";
-  font-size: 1rem;
-  font-weight: normal;
-  line-height: 1.6em;
-  margin: 0;
+  color           : #555555;
+  font-family     : "Roboto";
+  font-size       : 1rem;
+  font-weight     : normal;
+  line-height     : 1.6em;
+  margin          : 0;
 }
 
 *,
@@ -18,13 +18,13 @@ body {
 
 ul {
   list-style: none;
-  margin: 0px;
-  padding: 0px;
+  margin    : 0px;
+  padding   : 0px;
 }
 
 a {
   text-decoration: none;
-  color: inherit;
+  color          : inherit;
 }
 
 input:focus {
@@ -33,51 +33,57 @@ input:focus {
 
 .container {
   text-align: center;
-  width: 100%;
-  margin: 0 auto;
-  max-width: 1200px;
+  width     : 100%;
+  margin    : 0 auto;
+  max-width : 1200px;
 }
 
 .head {
-  display: block;
+  display   : block;
   margin-top: 20px;
 }
 
 .logo {
-  float: left;
+  float    : left;
   font-size: 1.2rem;
-  color: black;
+  color    : black;
 }
 
 .navBar {
-  float: right;
+  float    : right;
   font-size: 1.2rem;
+
   li {
-    display: inline-block;
-    margin-left: 30px;
+    display       : inline-block;
+    margin-left   : 30px;
     padding-bottom: 20px;
-    z-index: 9999;
+    z-index       : 9999;
+
     &:hover {
       color: rgba(9, 52, 121, 0.85);
     }
+
     .dropdown {
-      padding: 0px 30px;
+      padding : 0px 30px;
       position: relative;
     }
+
     .dropdownContent {
-      display: block;
-      position: absolute;
-      min-width: 200px;
-      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-      z-index: 1;
+      display         : block;
+      position        : absolute;
+      min-width       : 200px;
+      box-shadow      : 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index         : 1;
       background-color: #f4f4f4;
+
       a {
-        padding: 10px;
-        color: #555555;
+        padding   : 10px;
+        color     : #555555;
         text-align: left;
-        display: block;
+        display   : block;
+
         &:hover {
-          color: rgba(9, 52, 121, 0.85);
+          color           : rgba(9, 52, 121, 0.85);
           background-color: #dbdada;
         }
       }
@@ -86,115 +92,135 @@ input:focus {
 }
 
 .showMenu {
-  text-align: left;
-  position: absolute;
-  top: 50px;
-  display: block;
-  height: auto;
-  margin-top: 10px;
-  padding-top: 15px;
-  padding-bottom: 20px;
-  border-top: 2px solid darkgrey;
-  z-index: 1;
+  text-align      : left;
+  position        : absolute;
+  top             : 50px;
+  display         : block;
+  height          : auto;
+  margin-top      : 10px;
+  padding-top     : 15px;
+  padding-bottom  : 20px;
+  border-top      : 2px solid darkgrey;
+  z-index         : 1;
   background-color: #f4f4f4;
+
   li {
     display: inline-block;
-    width: 240px;
+    width  : 240px;
+
     a {
       font-size: 1.2rem;
-      color: rgba(9, 52, 121, 0.85);
+      color    : rgba(9, 52, 121, 0.85);
     }
+
     a:hover {
       color: rgb(72, 72, 151);
     }
+
     span {
-      float: left;
-      font-size: 0.8rem;
+      float       : left;
+      font-size   : 0.8rem;
       padding-left: 0.5em;
-      margin-left: 0.5em;
-      width: 90%;
-      border-left: 1px solid darkgrey;
+      margin-left : 0.5em;
+      width       : 90%;
+      border-left : 1px solid darkgrey;
     }
+
     li {
       a {
         font-size: inherit;
       }
+
       .mainLink {
         font-size: 1rem;
       }
-      font-size: 0.8rem;
-      float: left;
+
+      font-size   : 0.8rem;
+      float       : left;
       padding-left: 0.5em;
-      margin-left: 0.5em;
-      width: 90%;
-      border-left: 1px solid darkgrey;
+      margin-left : 0.5em;
+      width       : 90%;
+      border-left : 1px solid darkgrey;
     }
   }
 }
 
 .logAndRej {
-  padding: 0px;
+  padding      : 0px;
   border-radius: 0;
+
   .loginForm {
     display: inline-block;
     padding: 0;
-    width: 100%;
-    height: 100%;
+    width  : 100%;
+    height : 100%;
+
     p {
       font-size: 1.2rem;
-      margin: 0;
-      padding: 10px;
+      margin   : 0;
+      padding  : 10px;
     }
+
     #pNav {
-      color: white;
+      color           : white;
       background-color: rgba(9, 52, 121, 0.85);
     }
+
     #pCentered {
       text-align: center;
     }
+
     input {
       display: block;
-      width: 80%;
+      width  : 80%;
       padding: 5px;
-      margin: 5px auto;
+      margin : 5px auto;
     }
+
     button {
-      font-size: inherit;
+      font-size       : inherit;
       background-color: rgb(221, 221, 78);
-      color: rgb(35, 35, 168);
-      border: 0;
-      display: block;
-      width: 60%;
-      padding: 5px;
-      margin: 5px auto;
+      color           : rgb(35, 35, 168);
+      border          : 0;
+      display         : block;
+      width           : 60%;
+      padding         : 5px;
+      margin          : 5px auto;
+      cursor          : pointer;
     }
+
     .info {
       overflow: hidden;
-      width: 80%;
-      margin: auto;
+      width   : 80%;
+      margin  : auto;
+
       #wrongInfoA {
-        padding: 0px;
+        padding  : 0px;
         font-size: 0.8rem;
-        color: rgba(9, 52, 121, 0.85);
-        float: right;
+        color    : rgba(9, 52, 121, 0.85);
+        float    : right;
       }
+
       #wrongInfo {
-        padding: 0px;
+        padding  : 0px;
         font-size: 0.8rem;
-        float: left;
-        color: rgb(211, 0, 0);
+        float    : left;
+        color    : rgb(211, 0, 0);
       }
+
       #wrongInfoRej {
-        padding: 0px;
+        padding  : 0px;
         font-size: 0.8rem;
-        float: left;
-        color: rgb(211, 0, 0);
+        float    : left;
+        color    : rgb(211, 0, 0);
       }
+
       #rejAkcept {
         font-size: 0.7rem;
+
         a {
           font-size: 0.7rem;
-          color: rgba(9, 52, 121, 0.85);
+          color    : rgba(9, 52, 121, 0.85);
         }
       }
     }
@@ -202,142 +228,162 @@ input:focus {
 }
 
 .search-widget {
-  position: relative;
-  top: 0px;
-  display: flex;
-  flex-direction: column;
+  position        : relative;
+  top             : 0px;
+  display         : flex;
+  flex-direction  : column;
   background-color: rgba(9, 52, 121, 0.85);
-  color: white;
-  width: 100%;
-  margin: auto;
+  color           : white;
+  width           : 100%;
+  margin          : auto;
+
   .strony {
-    display: flex;
+    display       : flex;
     flex-direction: row;
-    padding: 1rem 0 1rem;
+    padding       : 1rem 0 1rem;
+
     .inputStrony {
-      align-items: center;
+      align-items     : center;
       background-color: transparent;
-      border: 0;
-      cursor: pointer;
-      display: flex;
-      padding: 0px;
-      margin-left: 20px;
+      border          : 0;
+      cursor          : pointer;
+      display         : flex;
+      padding         : 0px;
+      margin-left     : 20px;
     }
   }
+
   .displayDiv {
     display: flex;
+
     .inputDivs {
       width: 75%;
+
       .Inputs {
-        width: 100%;
-        position: relative;
-        display: flex;
+        width         : 100%;
+        position      : relative;
+        display       : flex;
         flex-direction: row;
-        text-align: left;
-        align-items: center;
-        margin-bottom: 20px;
+        text-align    : left;
+        align-items   : center;
+        margin-bottom : 20px;
+
         .divAndInput {
-          display: flex;
-          flex-direction: column;
-          width: 44%;
-          border: 1px solid black;
+          display         : flex;
+          flex-direction  : column;
+          width           : 44%;
+          border          : 1px solid black;
           background-color: white;
-          color: black;
-          line-height: 2rem;
-          font-size: 1rem;
-          margin-left: 20px;
+          color           : black;
+          line-height     : 2rem;
+          font-size       : 1rem;
+          margin-left     : 20px;
+
           div {
             margin-bottom: 0.25rem;
-            padding-left: 20px;
+            padding-left : 20px;
           }
+
           select {
-            border: 0;
-            margin-left: 15px;
-            font-size: 1rem;
-            font-family: "Roboto";
+            border       : 0;
+            margin-left  : 15px;
+            font-size    : 1rem;
+            font-family  : "Roboto";
             margin-bottom: 0.25rem;
-            width: 90%;
+            width        : 90%;
           }
         }
+
         .divAndInputButton {
           margin-left: 20px;
-          height: 2rem;
+          height     : 2rem;
         }
+
         .divAndInputBot {
-          display: flex;
-          flex-direction: column;
-          width: 30.7%;
-          border: 1px solid black;
+          display         : flex;
+          flex-direction  : column;
+          width           : 30.7%;
+          border          : 1px solid black;
           background-color: white;
-          color: black;
-          line-height: 2rem;
-          font-size: 1rem;
-          margin-left: 20px;
+          color           : black;
+          line-height     : 2rem;
+          font-size       : 1rem;
+          margin-left     : 20px;
+
           .inDiv {
             margin-bottom: 0.25rem;
-            padding-left: 20px;
+            padding-left : 20px;
           }
+
           input {
-            border: 0;
-            font-size: 1rem;
-            margin-left: 18px;
-            font-family: "Roboto";
+            border       : 0;
+            font-size    : 1rem;
+            margin-left  : 18px;
+            font-family  : "Roboto";
             margin-bottom: 0.25rem;
-            height: 25px;
-            width: 85%;
+            height       : 25px;
+            width        : 85%;
           }
+
           #spanPass {
-            border: 0;
-            padding-left: 20px;
-            font-size: inherit;
+            border       : 0;
+            padding-left : 20px;
+            font-size    : inherit;
             margin-bottom: 0.25rem;
-            height: 25px;
+            height       : 25px;
           }
+
           #wyborPas {
-            border: 1px black solid;
-            position: absolute;
-            top: 80px;
+            border          : 1px black solid;
+            position        : absolute;
+            top             : 80px;
             background-color: white;
-            width: 15em;
-            border-radius: 4px;
-            z-index: 99999;
-            padding: 20px 20px 10px 20px;
+            width           : 15em;
+            border-radius   : 4px;
+            z-index         : 99999;
+            padding         : 20px 20px 10px 20px;
+
             &:before {
-              content: '';
-              position: absolute;
-              top: -7px;
-              left: 30%;
-              border-left: 7px solid transparent;
-              border-right: 7px solid transparent;
+              content      : '';
+              position     : absolute;
+              top          : -7px;
+              left         : 30%;
+              border-left  : 7px solid transparent;
+              border-right : 7px solid transparent;
               border-bottom: 7px solid white;
-          }
+            }
+
             .labelSpan {
-              display: flex;
-              flex-direction: row;
+              display        : flex;
+              flex-direction : row;
               justify-content: center;
-              height: 40px;
-              margin-bottom: 10px;
+              height         : 40px;
+              margin-bottom  : 10px;
+
               label {
-                float: left;
-                width: 70%;
-                margin-top: 5px;
+                float        : left;
+                width        : 70%;
+                margin-top   : 5px;
                 margin-bottom: 0;
                 padding-right: 10px;
-                box-sizing: border-box;
-                font-size: 0.85em;
+                box-sizing   : border-box;
+                font-size    : 0.85em;
+
                 .spanTop {
-                  display: block;
-                  line-height: 0.85em;
-                  font-weight: bold;
+                  display       : block;
+                  line-height   : 0.85em;
+                  font-weight   : bold;
                   text-transform: uppercase;
-                  color: rgba(9, 52, 121, 0.85);
+                  color         : rgba(9, 52, 121, 0.85);
                 }
+
                 .spanBottom {
                   color: #777;
                 }
               }
+
               select {
-                width: 18%;
+                width : 18%;
                 height: 40px;
               }
             }
@@ -345,22 +391,97 @@ input:focus {
         }
       }
     }
+
     .buttonSolo {
-      width: 25%;
+      width  : 25%;
       display: flex;
-      margin: 0 20px 20px 20px;
+      margin : 0 20px 20px 20px;
+
       button {
         align-self: flex-end;
-        width: 100%;
-        height: 4rem;
-        font-size: 2rem;
+        width     : 100%;
+        height    : 68px;
+        font-size : 2rem;
       }
     }
   }
+
   button {
     background-color: rgb(221, 221, 78);
-    color: rgb(35, 35, 168);
-    border: 0;
-    cursor: pointer;
+    color           : rgb(35, 35, 168);
+    border          : 0;
+    cursor          : pointer;
+  }
+}
+
+#buyTicketStep1 {
+  margin  : 0 -10px;
+  padding : 0;
+  position: relative;
+
+  #buyTicketStep1Left {
+    margin-top : 0;
+    padding-top: 0;
+    width      : 75%;
+    float      : left;
+    min-height : 2.5em;
+    position   : relative;
+    font       : inherit;
+    display    : block;
+    text-align : left;
+
+    .buyTicketStep1LeftTop {
+      width: 100%;
+
+      .buyTicketStep1Left1 {
+        padding-bottom: 0px;
+        position      : relative;
+
+        h2 {
+          color: rgba(9, 52, 121, 0.85);
+        }
+
+        span {
+          font-size: 1.3rem;
+        }
+
+        .spanWylotPowrot {
+          margin-left: 15px;
+          font-weight: bold;
+        }
+      }
+
+      .buyTicketStep1Left2 {
+        margin-top  : 10px;
+        margin-bottom: 12px;
+
+        ul {
+          li {
+            text-align      : center;
+            display         : inline-block;
+            width           : 110px;
+            background-color: #cecfd4;
+            color           : black;
+            padding         : 10px 0 10px 0;
+            cursor          : pointer;
+            &:active {
+              border-top: 2px rgba(9, 52, 121, 0.85) solid;
+              background-color: #f4f4f4;
+            }
+            span {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #buyTicketStep1Right {
+    position: static;
+    top     : 10px;
+    width   : 25%;
+    height  : auto;
+    border  : none;
   }
 }
