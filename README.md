@@ -15,12 +15,12 @@ To run server use command:
 ```
 npm run dev
 ```
-Now the project will be available under this [address] (http://localhost:3000) 
+Now the project will be available under 'localhost:3000' address.
 
 Each script is defined in package.json file.
 ## Basics
 For the purpose of logging and creating new users node.js was used.
 
-Initial users are defined in [users.json](src/users.json) file. New users credentials and password are stored on the server.
+Initial users are defined in [users.json](src/users.json) file. New user credentials and password are stored on the server.
 
 ### Project is still under development.
