@@ -1,5 +1,5 @@
 # Project_reservations
-User can seach for available flights, reserve his seat and buy a plane ticket.
+User can search for available flights, reserve his seat and buy a plane ticket.
 ## Getting started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 ### Installing
@@ -11,10 +11,16 @@ Next build the project:
 ```
 npm run build:dev
 ```
-To run live server use command:
+To run server use command:
 ```
-npm run start:dev
+npm run dev
 ```
+Now the project will be available under this [address] (http://localhost:3000) 
+
 Each script is defined in package.json file.
+## Basics
+For the purpose of logging and creating new users node.js was used.
+
+Initial users are defined in [users.json](src/users.json) file. New users credentials and password are stored on the server.
 
 ### Project is still under development.
