@@ -10,16 +10,14 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
-        "index": "./src/index.js",
+        "main": "./src/main.js",
     },
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "[name].[contenthash].bundle.js"
     },
     devServer: {
-        // contentBase: path.join(__dirname, "dist"),
-        port: 9000,
-        // watchContentBase: true
+        port: +process.env.PROXY_PORT || 8080,
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -31,13 +29,6 @@ module.exports = {
         }),
         new OptimizeCssAssetsPlugin({
             assetNameRegExp: /\.css$/
-        }),
-        new BrowserSyncPlugin({
-            host: 'localhost',
-            port: 9100,
-            proxy: 'http://localhost:9000'
-        }, {
-            reload: false
         }),
         new webpack.LoaderOptionsPlugin({
             options: {
