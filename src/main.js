@@ -1,5 +1,12 @@
 import style from "./css/index.scss"
-import users from "./users.json"
+// import users from "./users.json"
+const usersURL = '/users';
+
+const requestHeaders = {
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
+};
+
 $(".showMenu").hide();
 $(document).ready(function () {
     $("#navBar1, #showMenu1").hover(function () {
@@ -93,29 +100,31 @@ $(document).ready(function () {
         const info = document.getElementById("wrongInfo");
         const login = document.getElementById("mail").value;
         const password = document.getElementById("password").value;
-        if (login in users) {
-            const usersLogin = users[login];
-            if (password == usersLogin.password) {
-                info.innerHTML = "";
-                console.log(usersLogin.username);
-                $('#loginClear').children('input').val('')
-                $(".blocker").remove();
-                $("#navBar5, #navBar6").hide();
-                const myLi = document.getElementById("loginA");
-                const myA = document.createElement("a");
-                myA.setAttribute("href", "#");
-                myA.setAttribute("id", "logA");
-                myA.innerText = usersLogin.username;
-                myLi.appendChild(myA);
-                $("#navBar7").show();
+        fetch(usersURL).then(res => res.json()).then(body => {
+            const users = body.users;
+            if (login in users) {
+                const usersLogin = users[login];
+                if (password == usersLogin.password) {
+                    info.innerHTML = "";
+                    $('#loginClear').children('input').val('')
+                    $(".blocker").remove();
+                    $("#navBar5, #navBar6").hide();
+                    const myLi = document.getElementById("loginA");
+                    const myA = document.createElement("a");
+                    myA.setAttribute("href", "#");
+                    myA.setAttribute("id", "logA");
+                    myA.innerText = usersLogin.username;
+                    myLi.appendChild(myA);
+                    $("#navBar7").show();
+                }
+                else {
+                    info.innerHTML = "Niepoprawne hasło!";
+                }
             }
             else {
-                info.innerHTML = "Niepoprawne hasło!";
+                info.innerHTML = "Podany adres email nie istnieje w bazie!";
             }
-        }
-        else {
-            info.innerHTML = "Podany adres email nie istnieje w bazie!";
-        }
+        });
     }
 
     document.getElementById("logOut").addEventListener("click", function () {
@@ -148,37 +157,49 @@ $(document).ready(function () {
             info.innerHTML = "Nie uzupełniono wszystkich pól!";
         }
         else {
-            if (email in users) {
-                info.style.color = "rgb(211, 0, 0)";
-                info.innerHTML = "Konto z podanym adresem email już istnieje!";
-            }
-            else {
-                if (user.length >= 12) {
+            fetch(usersURL).then(res => res.json()).then(body => {
+                const users = body.users;
+                if (email in users) {
                     info.style.color = "rgb(211, 0, 0)";
-                    info.innerHTML = "Podana nazwa użytkownika jest zbyt długa!";
+                    info.innerHTML = "Konto z podanym adresem email już istnieje!";
                 }
                 else {
-                    if (password.length < 8) {
+                    if (user.length >= 12) {
                         info.style.color = "rgb(211, 0, 0)";
-                        info.innerHTML = "Podano zbyt krótkie hasło!";
+                        info.innerHTML = "Podana nazwa użytkownika jest zbyt długa!";
                     }
                     else {
-                        if (password != password2) {
+                        if (password.length < 8) {
                             info.style.color = "rgb(211, 0, 0)";
-                            info.innerHTML = "Podane hasła nie są takie same!";
+                            info.innerHTML = "Podano zbyt krótkie hasło!";
                         }
                         else {
-                            users[email] = {
-                                "password": password,
-                                "username": user
-                            };
-                            info.style.color = "green";
-                            info.innerHTML = "Pomyślnie utworzono konto!";
-                            $('#rejClear').children('input').val('')
+                            if (password != password2) {
+                                info.style.color = "rgb(211, 0, 0)";
+                                info.innerHTML = "Podane hasła nie są takie same!";
+                            }
+                            else {
+                                const newUser = {
+                                    [email]: {
+                                        "password": password,
+                                        "username": user
+                                    }
+                                }
+                                console.log(newUser);
+                                fetch(usersURL, {
+                                    method: 'POST',
+                                    headers: requestHeaders,
+                                    body: JSON.stringify(newUser)
+                                }).then(res => {
+                                    info.style.color = "green";
+                                    info.innerHTML = "Pomyślnie utworzono konto!";
+                                    $('#rejClear').children('input').val('')
+                                })
+                            }
                         }
                     }
                 }
-            }
+            });
         }
     }
 
@@ -212,7 +233,5 @@ $(document).ready(function () {
         $("#buyTicket").show();
         document.getElementById("spanWylot").innerHTML = z + " ---> " + doo;
     }
-
-
 
 });
