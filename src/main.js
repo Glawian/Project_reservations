@@ -185,7 +185,6 @@ $(document).ready(function () {
                                         "username": user
                                     }
                                 }
-                                console.log(newUser);
                                 fetch(usersURL, {
                                     method: 'POST',
                                     headers: requestHeaders,
