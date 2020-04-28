@@ -12,6 +12,14 @@ var app = express();
 
 var users = require("./src/users.json");
 const usersURL = '/users';
+const passURL = '/pass';
+var passangers = {
+    "dorosli": 1,
+    "nastolatkowie": 0,
+    "dzieci": 0,
+    "niemowleta": 0
+}
+
 app.use(bodyParser.json());
 
 app.get(usersURL, (req, res) => {
@@ -26,6 +34,19 @@ app.post(usersURL, (req, res) => {
     users[newUser] = user[newUser];
     res.json({
         created: true,
+    })
+})
+
+app.get(passURL, (req, res) => {
+    res.json({
+        passangers,
+    })
+})
+
+app.post(passURL, (req, res) => {
+    passangers = req.body;
+    res.json({
+        passangers,
     })
 })
 

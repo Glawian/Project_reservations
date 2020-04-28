@@ -1,6 +1,7 @@
 import style from "./css/index.scss"
 // import users from "./users.json"
 const usersURL = '/users';
+const passURL = '/pass';
 
 const requestHeaders = {
     'Content-Type': 'application/json',
@@ -9,6 +10,9 @@ const requestHeaders = {
 
 $(".showMenu").hide();
 $(document).ready(function () {
+    $('#logoFly').click(function () {
+        location.reload();
+    })
     $("#navBar1, #showMenu1").hover(function () {
         $("#showMenu1").show();
     },
@@ -52,17 +56,6 @@ $(document).ready(function () {
     dateWylot.addEventListener("change", () => {
         $('#datePowrot').val(dateWylot.value);
         datePowrot.setAttribute("min", dateWylot.value);
-    })
-
-    $('#dorosliNum, #nastolatkowieNum, #dzieciNum, #niemowletaNum').change(() => {
-        var sum = parseInt($('#dorosliNum').val()) + parseInt($('#nastolatkowieNum').val()) + parseInt($('#dzieciNum').val()) + parseInt($('#niemowletaNum').val());
-        var spanPass = document.getElementById('spanPass');
-        if (sum != 1) {
-            spanPass.innerHTML = sum + " pasażerów";
-        }
-        else {
-            spanPass.innerHTML = sum + " pasażer";
-        }
     })
 
     $('#checkDwaP').click(function () {
@@ -203,14 +196,87 @@ $(document).ready(function () {
     }
 
     document.getElementById("changeZDo").addEventListener("click", function () {
+        event.preventDefault();
         var z = $("#zInput").val();
         var doo = $("#doInput").val();
-        if (doo === "default") {
-
-        } else {
+        if (doo != null) {
             $("#zInput").val(doo);
             $("#doInput").val(z);
         }
+    })
+
+    document.getElementById("doInput").addEventListener("change", function () {
+        var z = $("#zInput").val();
+        var doo = $("#doInput").val();
+        if ((doo === null) || (doo === z)) {
+            $("#inDivDo").css("color", "rgb(211, 0, 0)");
+            $("#divAndInputDo").addClass("redBorder");
+        } else {
+            $("#inDivDo").css("color", "black");
+            $("#divAndInputDo").removeClass("redBorder");
+        }
+    });
+
+    $('#dorosliNum, #nastolatkowieNum, #dzieciNum, #niemowletaNum').change(() => {
+        var dorosliNum = parseInt($('#dorosliNum').val());
+        var nastolatkowieNum = parseInt($('#nastolatkowieNum').val());
+        var dzieciNum = parseInt($('#dzieciNum').val());
+        var niemowletaNum = parseInt($('#niemowletaNum').val());
+        if (niemowletaNum > dorosliNum) {
+            fetch(passURL).then(res => res.json()).then(body => {
+                const passangers = body.passangers;
+                console.log(passangers);
+                $('#dorosliNum').val(passangers.dorosli);
+                $('#nastolatkowieNum').val(passangers.nastolatkowie);
+                $('#dzieciNum').val(passangers.dzieci);
+                $('#niemowletaNum').val(passangers.niemowleta);
+            });
+            $("#niemowletaNum").addClass("redBorder");
+            $("#errorPassDiv").text("Liczba niemowląt musi być mniejsza bądź równa liczbie pasażerów powyżej 16 lat.");
+            $("#errorPassDiv").show();
+            return false;
+        } else {
+            $("#niemowletaNum").removeClass("redBorder");
+            $("#errorPassDiv").text("");
+            $("#errorPassDiv").hide();
+        }
+        var sum = dorosliNum + nastolatkowieNum + dzieciNum + niemowletaNum;
+
+        if ((sum - niemowletaNum) > 9) {
+            fetch(passURL).then(res => res.json()).then(body => {
+                const passangers = body.passangers;
+                console.log(passangers);
+                $('#dorosliNum').val(passangers.dorosli);
+                $('#nastolatkowieNum').val(passangers.nastolatkowie);
+                $('#dzieciNum').val(passangers.dzieci);
+                $('#niemowletaNum').val(passangers.niemowleta);
+            });
+            $("#errorPassDiv").text("Liczba pasażerów nie może być większa niż 9 (bez niemowląt)");
+            $("#errorPassDiv").show();
+            return false;
+        } else {
+            $("#errorPassDiv").text("");
+            $("#errorPassDiv").hide();
+        }
+        var spanPass = document.getElementById('spanPass');
+        if (sum != 1) {
+            spanPass.innerHTML = sum + " pasażerów";
+        }
+        else {
+            spanPass.innerHTML = sum + " pasażer";
+        }
+
+        const passangersNew = {
+            "dorosli": dorosliNum,
+            "nastolatkowie": nastolatkowieNum,
+            "dzieci": dzieciNum,
+            "niemowleta": niemowletaNum
+        }
+        fetch(passURL, {
+            method: 'POST',
+            headers: requestHeaders,
+            body: JSON.stringify(passangersNew)
+        });
     })
 
     document.getElementById("submitSearch").addEventListener("click", buyTicketStep1);
@@ -219,12 +285,11 @@ $(document).ready(function () {
         event.preventDefault();
         var z = $("#zInput").val();
         var doo = $("#doInput").val();
-        // if (doo === null) {
-        //     $("#doInput").css("color", "red");
-        //     return false;
-        // } else {
-        //     $("#doInput").css("color", "black");
-        // }
+        if ((doo === null) || (doo === z)) {
+            $("#inDivDo").css("color", "rgb(211, 0, 0)");
+            $("#divAndInputDo").addClass("redBorder");
+            return false;
+        }
         var wylot = $("#dateWylot").val();
         var powrot = $("#datePowrot").val();
         var sum = parseInt($('#dorosliNum').val()) + parseInt($('#nastolatkowieNum').val()) + parseInt($('#dzieciNum').val()) + parseInt($('#niemowletaNum').val());

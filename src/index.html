@@ -44,7 +44,7 @@
     <header class="container">
         <div class="head">
             <div class="logo">
-                <a href="#">FLY.COM</a>
+                <a href="#" id="logoFly">FLY.COM</a>
             </div>
             <ul class="navBar" id="myUl">
                 <li id="navBar1"><a href="#">Zarezerwuj</a></li>
@@ -202,8 +202,8 @@
                             <button class="divAndInputButton" id="changeZDo">
                                 <->
                             </button>
-                            <div class="divAndInput">
-                                <div class="inDiv">Do</div>
+                            <div class="divAndInput" id="divAndInputDo">
+                                <div class="inDiv" id="inDivDo">Do</div>
                                 <select id="doInput">
                                     <option value="default" disabled selected hidden>Wybierz miejsce przylotu</option>
                                     <optgroup label="Europa">
@@ -303,12 +303,15 @@
                                             <option value="9">9</option>
                                         </select>
                                     </div>
+                                    <div class="errorPass" id="errorPassDiv" style="display: none;">
+                                        
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="buttonSolo" id="submitSearch">
-                        <button type="submit">Szukaj</button>
+                    <div class="buttonSolo">
+                        <button id="submitSearch" type="submit">Szukaj</button>
                     </div>
                 </div>
             </form>
